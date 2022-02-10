@@ -2,13 +2,13 @@
 
 # Geral
 
-[ ] Importar Imagem de fundo
+[ x ] Importar Imagem de fundo
 
-[ ] Importar Icons
+[ x ] Importar Icons
 
-[ ] Importar Font
+[ x ] Importar Font
 
-[ ] Pegar paleta de cores
+[ x ] Pegar paleta de cores
 
 # Front-End
 
