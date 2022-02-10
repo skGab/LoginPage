@@ -12,10 +12,14 @@
 
 # Front-End
 
-[ ] Construir componentes
+[ x ] Construir componentes
 
-    [] Formulario
+    [ x ] Formulario
 
-    [] Botão
+    [ x ] Botão
+
+    [ x ] BackGround
+    
+    [ x ] Social
 
 # Back-End

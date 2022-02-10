@@ -1,0 +1,11 @@
+.img{
+    &__container{
+        width: 58%;
+        background-image: url(../../img/bg.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: black;
+    } 
+}
+

@@ -16,3 +16,16 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--branco);
 }
+
+.main {
+    &__container{
+        width: 100%;
+        background-color: var(--black);
+        display: flex;
+    }
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
