@@ -19,7 +19,15 @@
     [ x ] Botão
 
     [ x ] BackGround
-    
+
     [ x ] Social
+
+[ ] Validação de formulario
+
+[ ] Adicionar caminho aos links
+
+[ ] Mostrar NomeUsuario apos login
+
+[ ] Responsividade
 
 # Back-End
