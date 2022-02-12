@@ -1,33 +1,36 @@
 import { Button } from "../Button/btn";
 import { Social } from "../Rede/social";
 import "./form.scss";
-import react, {useState} from "react";
-
+import react, { useState } from "react";
 
 const Formulario = () => {
+  const [register, setRegister] = useState({});
 
-  const {login, setlogin} = useState('');
+  const handleChange = (e) => {
+    setRegister({...register, [e.target.name]: e.target.value });
+  };
 
-  function formHandle(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    alert(login)
-  }
-
-  function takeInfo(event){
-    setlogin(event.target.value)
-  }
-
+    console.log(register);
+  };
 
   return (
     <div className="form__container">
-      <form onSubmit={formHandle}>
+      <form onSubmit={handleSubmit}>
         <div className="form__header">
           <h1>Login to continue</h1>
         </div>
         <div className="form__filds">
-          <input onChange={takeInfo} value={event.target.value} className="form__space" type="text" placeholder="Email" />
-          <input type="text" placeholder="Password" />
+          <input
+            onChange={handleChange}
+            className="form__space"
+            type="text"
+            placeholder="Email"
+            name="Name"
+          />
+          <input name="PassWord" onChange={handleChange} type="text" placeholder="Password" />
         </div>
 
         <div className="form__forgot">
