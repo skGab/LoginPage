@@ -6,14 +6,15 @@ import react, { useState } from "react";
 const Formulario = () => {
   const [register, setRegister] = useState({});
 
-  const handleChange = (e) => {
-    setRegister({...register, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(register);
+    const form = new FormData(e.target);
+    const formData = Object.fromEntries(form.entries());
+
+    setRegister(formData);
+
+    alert(register.Name);
   };
 
   return (
@@ -24,13 +25,12 @@ const Formulario = () => {
         </div>
         <div className="form__filds">
           <input
-            onChange={handleChange}
             className="form__space"
             type="text"
             placeholder="Email"
             name="Name"
           />
-          <input name="PassWord" onChange={handleChange} type="text" placeholder="Password" />
+          <input name="Password" type="text" placeholder="Password" />
         </div>
 
         <div className="form__forgot">
