@@ -4,7 +4,8 @@ import "./form.scss";
 import react, { useState } from "react";
 
 const Formulario = () => {
-  const [register, setRegister] = useState({});
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,9 +13,12 @@ const Formulario = () => {
     const form = new FormData(e.target);
     const formData = Object.fromEntries(form.entries());
 
-    setRegister(formData);
 
-    alert(register.Name);
+    const request = await fetch('http://localhost:3001/', {
+      method: 'POST',
+      headers: {"Content-type": "application/json"},
+      body: JSON.stringify(formData)
+    });
   };
 
   return (
