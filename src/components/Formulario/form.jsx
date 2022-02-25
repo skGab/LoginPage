@@ -1,32 +1,41 @@
+// IMPORTAÇÕES
 import { Button } from "../Button/btn";
 import { Social } from "../Rede/social";
 import "./form.scss";
 import react, { useState } from "react";
 
 const Formulario = () => {
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
+  // VARIAVEIS DE ESTADO
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [currentForm, setCurrentForm] = useState("");
 
+  // TRATANDO FORMULARIO
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // TRATANDO DADOS DO FORMULARIO
     const form = new FormData(e.target);
     const formData = Object.fromEntries(form.entries());
-
-
-    const request = await fetch('http://localhost:3001/', {
-      method: 'POST',
-      headers: {"Content-type": "application/json"},
-      body: JSON.stringify(formData)
+    // ENVIANDO DADOS PARA O BACK-END
+    const request = await fetch("http://localhost:3001/", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify(formData),
     });
   };
 
   return (
     <div className="form__container">
+
       <form onSubmit={handleSubmit}>
+        {/* HEADER */}
         <div className="form__header">
           <h1>Login to continue</h1>
         </div>
+        {/* CONTEUDO PRINCIPAL */}
         <div className="form__filds">
           <input
             className="form__space"
@@ -36,7 +45,7 @@ const Formulario = () => {
           />
           <input name="Password" type="text" placeholder="Password" />
         </div>
-
+        {/* FOOTER */}
         <div className="form__forgot">
           <div className="form__check">
             <input type="checkbox" />
@@ -47,7 +56,12 @@ const Formulario = () => {
           </p>
         </div>
 
-        <Button />
+        {/* COMPONENTES DO FOOTER */}
+
+        <Button title={"Login"} />
+
+        {/* <Button title={"Cadastro"} /> */}
+
         <Social />
       </form>
     </div>

@@ -1,4 +1,5 @@
 # Pagina de Login
+
 - Projeto em andamento: <a href=https://login-page-zdeep10.vercel.app/>Visualizar</a>
 
 # Geral
@@ -15,7 +16,9 @@
 
 [ x ] Construir componentes
 
-    [ x ] Formulario
+    [ x ] Formulario Login
+
+    [  ] Formulario Cadastro
 
     [ x ] Botão
 
@@ -27,8 +30,24 @@
 
 [ ] Adicionar caminho aos links
 
-[ ] Mostrar NomeUsuario apos login
-
 [ ] Responsividade
 
+[ ] Criar botão de login e cadastro
+
+[ ] Ao clicar no botão de cadastro:
+
+    [ ] Salvar informações no banco de dados
+
+    [ ] Mostrar msg de sucesso ao finalizar o cadastro
+
+[ ] Ao clicar no botão de Login
+
+    [ ] Validar se usuario esta cadastrado
+    
+    [ ] Mostrar TODO List
+
 # Back-End
+
+[ ] Fazer conexão com o front-end
+
+[ ] Construir funções para os requests

@@ -3,21 +3,23 @@
     width: 100%;
     margin-top: 3rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 
     &--style {
       font-size: 1.5rem;
       font-weight: bold;
-      letter-spacing: .1rem;
+      letter-spacing: 0.1rem;
       color: rgb(248, 245, 245);
-      width: 100%;
+      width: 90%;
       padding: 1.6rem;
       border-radius: 1rem;
       background-color: var(--roxo);
       outline: none;
       border: none;
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Montserrat", sans-serif;
 
-      :hover{
+      :hover {
         background-color: var(--black);
       }
     }
