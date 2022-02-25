@@ -18,7 +18,7 @@
 
     [ x ] Formulario Login
 
-    [  ] Formulario Cadastro
+    [ x ] Formulario Cadastro
 
     [ x ] Botão
 
@@ -28,9 +28,7 @@
 
 [ ] Validação de formulario
 
-[ ] Adicionar caminho aos links
-
-[ ] Responsividade
+[ x ] Responsividade
 
 [ ] Criar botão de login e cadastro
 

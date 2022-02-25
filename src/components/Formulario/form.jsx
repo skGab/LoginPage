@@ -8,7 +8,7 @@ const Formulario = () => {
   // VARIAVEIS DE ESTADO
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [currentForm, setCurrentForm] = useState("");
+  const [currentForm, setCurrentForm] = useState("Login");
 
   // TRATANDO FORMULARIO
   const handleSubmit = async (e) => {
@@ -29,11 +29,25 @@ const Formulario = () => {
 
   return (
     <div className="form__container">
-
+      {/* Navegação do formulario */}
+      <nav className="form__nav">
+        <button
+          onClick={() => setCurrentForm("Login")}
+          className="form__nav--hoverGreen"
+        >
+          Login
+        </button>
+        <button
+          onClick={() => setCurrentForm("Sing up")}
+          className="form__nav--hoverRoxo"
+        >
+          Sing Up
+        </button>
+      </nav>
+      {/* HEADER */}
       <form onSubmit={handleSubmit}>
-        {/* HEADER */}
         <div className="form__header">
-          <h1>Login to continue</h1>
+          <h1>{currentForm} to continue</h1>
         </div>
         {/* CONTEUDO PRINCIPAL */}
         <div className="form__filds">
@@ -58,11 +72,11 @@ const Formulario = () => {
 
         {/* COMPONENTES DO FOOTER */}
 
-        <Button title={"Login"} />
+        <Button currentForm={currentForm} />
 
         {/* <Button title={"Cadastro"} /> */}
 
-        <Social />
+        <Social currentForm={currentForm} />
       </form>
     </div>
   );

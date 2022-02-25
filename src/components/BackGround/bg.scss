@@ -1,12 +1,16 @@
-.img{
-    &__container{
-        width: 58%;
-        height: 100vh;
-        background-image: url(../../img/bg.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: black;
-    } 
-}
+.img {
+  &__container {
+    width: 58%;
+    height: 100vh;
+    background-image: url(../../img/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
 
+    @media (max-width: 768px) {
+      transition: visibility 2s ease-in;
+      display: none;
+    }
+  }
+}
