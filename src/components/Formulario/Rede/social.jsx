@@ -1,7 +1,7 @@
 import './social.scss'
 
-import git from '../../icons/git-icon.png'
-import link from '../../icons/link-icon.png'
+import git from '../../../icons/git-icon.png'
+import link from '../../../icons/link-icon.png'
 
 export function Social({currentForm}) {
     return(

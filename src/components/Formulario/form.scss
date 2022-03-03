@@ -1,5 +1,6 @@
 .form {
   &__container {
+    border-radius: 5px;
     width: 42%;
     height: 80%;
     display: flex;
@@ -7,12 +8,18 @@
     align-items: center;
     justify-content: space-evenly;
 
-    @media (max-width: 768px) {
-      width: 65%;
+    @media (max-width: 1034px) {
+      width: 60%;
+      box-shadow: 1px 2px 4px var(--roxo);
     }
 
-    @media (max-width: 511px) {
+    @media (max-width: 720px) {
+      width: 80%;
+    }
+
+    @media (max-width: 537px) {
       width: 100%;
+      box-shadow: none;
     }
 
     form {
@@ -46,13 +53,26 @@
       font-weight: bold;
       font-family: "Montserrat", sans-serif;
 
-      @media (max-width: 511px) {
+      @media (max-width: 537px) {
         padding: 0.6rem;
-        width: 30%;
+        width: 100%;
       }
     }
 
-    &--hoverGreen {
+    // Selected buttons
+    .brownSelected {
+      background-color: #8a7256;
+      transition: background 0.3s ease-in;
+      color: var(--branco);
+    }
+
+    .purpleSelected {
+      background-color: var(--roxo);
+      color: var(--branco);
+      transition: background 0.3s ease-in;
+    }
+
+    &--hoverBrown {
       margin-right: 0.8rem;
 
       &:hover {
@@ -61,7 +81,7 @@
         color: var(--branco);
       }
     }
-    &--hoverRoxo {
+    &--hoverPurple {
       &:hover {
         transition: background 0.3s ease-in;
         background-color: var(--roxo);

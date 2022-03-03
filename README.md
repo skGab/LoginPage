@@ -30,7 +30,7 @@
 
 [ x ] Responsividade
 
-[ ] Criar botão de login e cadastro
+[ x ] Criar botão de login e cadastro
 
 [ ] Ao clicar no botão de cadastro:
 
