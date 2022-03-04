@@ -52,7 +52,7 @@ const Formulario = () => {
           setDisplayButton(true);
         };
 
-        // setTimeout(changeForm, 3000);
+        setTimeout(changeForm, 3000);
       }
 
       console.log(isValid);
