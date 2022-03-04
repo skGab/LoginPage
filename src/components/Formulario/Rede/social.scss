@@ -1,6 +1,6 @@
 .social {
   &__container {
-    margin-top: 5rem;
+    margin-top: 3rem;
     width: 100%;
   }
 
@@ -18,15 +18,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     .space {
       margin-right: 1rem;
+    }
+
+    .link{
+      width: 40px;
+      height: auto;
     }
 
     &--size {
       width: 35px;
       height: auto;
-      border-radius: 50%;
     }
   }
 }

@@ -3,22 +3,30 @@ import "./form.scss";
 import { Button } from "./Button/btn";
 import { Social } from "./Rede/social";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { formContext } from "../../Context/formContext";
 import { colorContext } from "../../Context/colorContext";
-import Nav from "./Navegacao/nav";
+import { Input } from "./Input/input";
+import userSchema from "./Validation/userValidation";
+import { Nav } from "./Navegacao/nav";
+import { Submitted } from "../Submitted/submit";
 
 const Formulario = () => {
   // VARIAVEIS DE ESTADO
 
-  const { register, handleSubmit } = useForm("");
+  const [passwordError, setPasswordError] = useState(null);
+  const [emailError, setEmailError] = useState(null);
+  const [displayButton, setDisplayButton] = useState(true);
 
   const [currentForm, setCurrentForm] = useState("Login");
   const [brownButton, setBrownButton] = useState(true);
   const [purpleButton, setPurpleButton] = useState("");
 
-  const onSubmit = async (data) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     // TRATANDO DADOS DO FORMULARIO
+    const form = new FormData(e.target);
+    const formData = Object.fromEntries(form.entries());
+
     // ENVIANDO DADOS PARA O BACK-END
     // const request = await fetch("http://localhost:3001/", {
     //   method: "POST",
@@ -26,11 +34,49 @@ const Formulario = () => {
     //     "Content-type": "application/json",
     //     accept: "application/json",
     //   },
-    //   body: JSON.stringify(data),
+    //   body: JSON.stringify(formData),
     // });
 
-    // Funções do formulario
-    console.log(data);
+    // Validando formulario
+    try {
+      const isValid = await userSchema.validate(formData);
+
+      if (currentForm === "Sign up") {
+        setDisplayButton(false);
+      }
+
+      console.log(isValid);
+
+      setEmailError("");
+      setPasswordError("");
+    } catch (err) {
+      if (err.message.includes("email") || err.message.includes("password")) {
+        if (err.message.includes("email")) {
+          setEmailError(err.message);
+          setPasswordError("");
+        }
+
+        if (err.message.includes("password")) {
+          setPasswordError(err.message);
+          setEmailError("");
+        }
+
+        if (err.message.includes("email") && err.message.includes("password")) {
+          setEmailError(err.message);
+          setPasswordError(err.message);
+        }
+      }
+
+      // if (err.message.includes("email")) {
+      //   setEmailError(err.message);
+      // } else {
+      //   setPasswordError(err.message);
+      // }
+
+      // if (err.message.includes("password")) {
+      //   setPasswordError(err.message);
+      // }
+    }
   };
 
   return (
@@ -49,32 +95,26 @@ const Formulario = () => {
           <Nav />
 
           {/* HEADER */}
-          <form onSubmit={handleSubmit(onSubmit)}>
+
+          <form onSubmit={handleSubmit}>
             <div className="form__header">
               <h1>{currentForm} to continue</h1>
             </div>
+
             {/* CONTEUDO PRINCIPAL */}
-            <div className="form__filds">
-              <input
-                {...register("Email", { required: true })}
-                className="form__space"
-                type="text"
-                placeholder="Email"
-              />
-              {}
-              <input
-                {...register("Password", {
-                  required: true,
-                  minLength: {
-                    value: 5,
-                    placeholder: "Necessario 3",
-                  },
-                })}
-                type="password"
-                placeholder="Password"
-              />
-            </div>
+
+            <Input name="Email" type="text" placeholder="Email" />
+            {emailError ? <span className="error">{emailError}</span> : ""}
+
+            <Input name="Password" type="password" placeholder="Password" />
+            {passwordError ? (
+              <span className="error">{passwordError}</span>
+            ) : (
+              ""
+            )}
+
             {/* FOOTER */}
+
             <div className="form__forgot">
               <div className="form__check">
                 <input type="checkbox" />
@@ -87,7 +127,11 @@ const Formulario = () => {
 
             {/* COMPONENTES DO FOOTER */}
 
-            <Button currentForm={currentForm} />
+            {displayButton ? (
+              <Button currentForm={currentForm} />
+            ) : (
+              <Submitted/>
+            )}
 
             {/* <Button title={"Cadastro"} /> */}
 

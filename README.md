@@ -26,7 +26,7 @@
 
     [ x ] Social
 
-[ ] Validação de formulario
+[ x ] Validação de formulario
 
 [ x ] Responsividade
 
@@ -36,7 +36,7 @@
 
     [ ] Salvar informações no banco de dados
 
-    [ ] Mostrar msg de sucesso ao finalizar o cadastro
+    [ x ] Mostrar msg de sucesso ao finalizar o cadastro
 
 [ ] Ao clicar no botão de Login
 

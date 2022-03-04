@@ -3,11 +3,10 @@ import { colorContext } from "../../../Context/colorContext";
 // import { colorContext } from '../../../Context/colorContext';
 import { formContext } from "../../../Context/formContext";
 
-function Nav() {
+export function Nav() {
   const { setCurrentForm } = useContext(formContext);
-  const {brownButton, setBrownButton, purpleButton, setPurpleButton} = useContext(colorContext)
-
-  
+  const { brownButton, setBrownButton, purpleButton, setPurpleButton } =
+    useContext(colorContext);
 
   return (
     <nav className="form__nav">
@@ -38,5 +37,3 @@ function Nav() {
     </nav>
   );
 }
-
-export default Nav;

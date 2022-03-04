@@ -1,7 +1,6 @@
 import "./bg.scss";
 
-const BackGround = () => {
+export function BackGround(){
   return <div className="img__container"></div>;
 };
 
-export default BackGround;

@@ -10,7 +10,7 @@ export function Social({currentForm}) {
 
             <div className="social__icons">
                 <img className='social__icons--size space' src={git} alt="icone github" />
-                <img className='social__icons--size' src={link} alt="icone linkediin" />
+                <img className='social__icons--size link' src={link} alt="icone linkediin" />
             </div>
         </div>
     )

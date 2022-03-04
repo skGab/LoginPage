@@ -112,11 +112,8 @@
       padding: 3rem;
       background: none;
       font-family: "Montserrat", sans-serif;
+      margin: 0.8rem 0;
     }
-  }
-
-  &__space {
-    margin-bottom: 1rem;
   }
 
   &__check {
@@ -138,6 +135,7 @@
     font-family: "Montserrat", sans-serif;
     font-size: 1.3rem;
     margin-top: 2rem;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
     width: 100%;
