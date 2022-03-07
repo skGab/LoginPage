@@ -8,7 +8,7 @@ import { colorContext } from "../../Context/colorContext";
 import { Input } from "./Input/input";
 import userSchema from "./Validation/userValidation";
 import { Nav } from "./Navegacao/nav";
-import { Submitted } from "../Submitted/submit";
+import { Submitted } from "./Submitted/submit";
 import api from "../../services/api";
 
 const Formulario = () => {
@@ -34,7 +34,7 @@ const Formulario = () => {
 
       // CADASTRAR USUARIO
       if (currentForm === "Sign up") {
-        const request = await fetch("http://localhost:3001/newuser", {
+        const request = await fetch("http://localhost:3001/users/new", {
           method: "POST",
           headers: {
             "Content-type": "application/json",

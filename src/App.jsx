@@ -3,6 +3,7 @@ import react, {  useState } from "react";
 import "../src/styles/global.scss";
 import { BackGround } from "./components/BackGround/bg";
 import Formulario from "./components/Formulario/form";
+import Todo from "./components/Todo/todo";
 import {colorContext} from "./Context/colorContext"
 import {formContext} from "./Context/formContext"
 
@@ -19,8 +20,9 @@ function App() {
     >
       <formContext.Provider value={{ currentForm, setCurrentForm }}>
         <div className="main__container">
-          <BackGround />
-          <Formulario />
+          <Todo/>
+          {/* <BackGround />
+          <Formulario /> */}
         </div>
       </formContext.Provider>
     </colorContext.Provider>

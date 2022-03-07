@@ -1,9 +1,17 @@
-Post http://localhost:3001/todo
+GET http://localhost:3001/todos
+
+###
+
+Post http://localhost:3001/todos/new
 Content-Type: application/json
 
 {
-   "text": "Testando"
+   "text": "Deu certo"
 }
 
-//
+###
+DELETE http://localhost:3001/todos/delete/6226453781e03a57dcce4637
 
+
+###
+PUT http://localhost:3001/todos/complete/622650c51abfdb9af14fd049
