@@ -1,4 +1,9 @@
-GET http://localhost:3001/
+Post http://localhost:3001/todo
+Content-Type: application/json
+
+{
+   "text": "Testando"
+}
 
 //
 
