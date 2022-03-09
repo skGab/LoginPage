@@ -19,7 +19,8 @@ const Formulario = () => {
   const [userAuthentication, setUserAuthentication] = useState("");
 
   const { setBrownButton, setPurpleButton } = useContext(colorContext);
-  const { currentForm, setCurrentForm } = useContext(formContext);
+  const { currentForm, setCurrentForm, setDisplayTodo } =
+    useContext(formContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -83,6 +84,8 @@ const Formulario = () => {
           });
         // AUTENTICAÇÃO USUARIO
         if (userAuthentication == true) {
+          setDisplayTodo(true);
+
           console.log("Logado");
           console.log(userAuthentication);
 

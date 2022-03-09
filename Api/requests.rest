@@ -6,11 +6,11 @@ Post http://localhost:3001/todos/new
 Content-Type: application/json
 
 {
-   "text": "Deu certo"
+   "text": "Testando"
 }
 
 ###
-DELETE http://localhost:3001/todos/delete/6226453781e03a57dcce4637
+DELETE http://localhost:3001/todos/delete/622650c51abfdb9af14fd049
 
 
 ###

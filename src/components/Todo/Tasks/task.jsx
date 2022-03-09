@@ -1,17 +1,25 @@
+import { useState } from "react";
 import trash from "../../../icons/delete-icon.png";
 
-export function Task() {
+export function Task({ todo }) {
+  const [active, setActive] = useState(true);
+
   return (
-    <div className="todo__main__wrapper">
-      <div className="todo__main__filds">
-        <input
-          id="01"
-          className="todo__main__checkbox"
-          type="checkbox"
-          name="r"
-          value="1"
-        />
-        <label for="01">Levar lixo para fora</label>
+    <div className="todo__main__filds">
+      <div className="todo__main__fild" key={todo._id}>
+        <div
+          className={`todo__main__checkbox ${
+            active ? "todo__main__checkbox--active" : ""
+          }`}
+        ></div>
+
+        <div
+          className={`todo__main__text ${
+            active ? "todo__main__text--active" : ""
+          }`}
+        >
+          {todo.text}
+        </div>
       </div>
 
       <div className="todo__main__delete">
