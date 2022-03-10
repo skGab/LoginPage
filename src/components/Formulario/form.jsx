@@ -34,7 +34,7 @@ const Formulario = () => {
 
       // CADASTRAR USUARIO
       if (currentForm === "Sign up") {
-        const request = await fetch("https://node-server-f05aytieu-zdeep10.vercel.app/users/new", {
+        const request = await fetch("http://localhost:3001/users/new", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
