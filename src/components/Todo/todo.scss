@@ -1,0 +1,128 @@
+.todo {
+  &__container {
+    background-image: url(../../img/bg__todo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+  }
+
+  &__wrapper {
+    backdrop-filter: blur(15px) saturate(90%);
+    -webkit-backdrop-filter: blur(15px) saturate(90%);
+    background-color: #a9b3b450;
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 1px 2px 4px black;
+    transition: 0.4s;
+  }
+
+  &__header {
+    color: #2a343a;
+    margin-bottom: 1rem;
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+
+    &__filds {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #ad9372;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      transition: 0.5s;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      box-shadow: 1px 2px 4px black;
+    }
+
+    &__fild {
+      display: flex;
+      align-items: center;
+
+      :hover {
+        opacity: 0.8;
+      }
+    }
+
+    &__checkbox {
+      margin-right: 1.5rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 20px;
+      background-color: #d8d7d5;
+      transition: 0.4s;
+      box-shadow: 0px 0.3px 4px black;
+
+      &--active {
+        background-color: #26373e;
+        // background-image: linear-gradient(to bottom, #ad9372, #26373E);
+      }
+    }
+
+    &__text {
+      font-size: 1.8rem;
+      color: rgb(233, 233, 233);
+      font-family: "Poppins", sans-serif;
+      &--active{
+        text-decoration: line-through;
+        color: #26373e;
+      }
+    }
+
+    &__delete {
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+
+      :hover {
+        opacity: 0.8;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__new {
+      display: flex;
+      background-color: #23382500;
+      box-shadow: 0.5px 0.5px 4px black;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 20px;
+      padding: 1rem;
+      align-self: flex-end;
+
+      img {
+        width: 15px;
+        height: auto;
+      }
+    }
+  }
+}

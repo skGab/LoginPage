@@ -4,11 +4,13 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@prisma/client": "^3.9.2",
+    "axios": "^0.26.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sass": "^1.49.7",

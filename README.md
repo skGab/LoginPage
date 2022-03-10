@@ -32,9 +32,9 @@
 
 [ x ] Criar botão de login e cadastro
 
-[ ] Ao clicar no botão de cadastro:
+[ x ] Ao clicar no botão de cadastro:
 
-    [ ] Salvar informações no banco de dados
+    [ x ] Salvar informações no banco de dados
 
     [ x ] Mostrar msg de sucesso ao finalizar o cadastro
 
@@ -46,6 +46,6 @@
 
 # Back-End
 
-[ ] Fazer conexão com o front-end
+[ x ] Fazer conexão com o front-end
 
-[ ] Construir funções para os requests
+[ x ] Construir funções para os requests
