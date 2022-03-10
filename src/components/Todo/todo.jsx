@@ -11,7 +11,7 @@ function Todo() {
   const [newTodo, setNewTodo] = useState("");
 
   const fetchTasks = async () => {
-    await fetch("https://node-server-385z136fl-zdeep10.vercel.app/todos")
+    await fetch("https://node-server-f05aytieu-zdeep10.vercel.app/todos")
       .then((res) => res.json())
       .then((data) => setTodos(data))
       .catch((err) => console.error("Error: ", err));
