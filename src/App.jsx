@@ -12,13 +12,13 @@ function App() {
   const [purpleButton, setPurpleButton] = useState("");
 
   const [currentForm, setCurrentForm] = useState("Login");
-  const [displayTodo, setDisplayTodo] = useState(false);
+  const [displayTodo, setDisplayTodo] = useState(true);
 
   const changeAplication = () => {
     if (displayTodo) {
       return <Todo />;
     } else {
-      return [<BackGround />, <Formulario />];
+      // return [<BackGround />, <Formulario />];
     }
   };
 

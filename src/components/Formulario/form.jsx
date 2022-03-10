@@ -47,6 +47,9 @@ const Formulario = () => {
         // Troca de formulario
         setDisplayButton(false);
 
+        setEmailError(null);
+        setPasswordError(null);
+
         const changeForm = () => {
           setCurrentForm("Login");
           setBrownButton(true);
@@ -61,7 +64,7 @@ const Formulario = () => {
 
       // LOGAR USUARIO
       if (currentForm === "Login") {
-        setUserAuthentication("");
+        let userAuthentication = false;
         await api
           .get("/users")
           .then((res) => {
@@ -72,10 +75,7 @@ const Formulario = () => {
                 user[i].email === formData.email &&
                 user[i].password === formData.password
               ) {
-                setUserAuthentication(true);
-                break;
-              } else {
-                setUserAuthentication(false);
+                userAuthentication = true;
               }
             }
           })
@@ -83,11 +83,8 @@ const Formulario = () => {
             console.log(err);
           });
         // AUTENTICAÇÃO USUARIO
-        if (userAuthentication == true) {
+        if (userAuthentication) {
           setDisplayTodo(true);
-
-          console.log("Logado");
-          console.log(userAuthentication);
 
           setEmailError(null);
           setPasswordError(null);
