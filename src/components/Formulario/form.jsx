@@ -16,7 +16,6 @@ const Formulario = () => {
   const [passwordError, setPasswordError] = useState(null);
   const [emailError, setEmailError] = useState(null);
   const [displayButton, setDisplayButton] = useState(true);
-  const [userAuthentication, setUserAuthentication] = useState("");
 
   const { setBrownButton, setPurpleButton } = useContext(colorContext);
   const { currentForm, setCurrentForm, setDisplayTodo } =
@@ -35,7 +34,7 @@ const Formulario = () => {
 
       // CADASTRAR USUARIO
       if (currentForm === "Sign up") {
-        const request = await fetch("http://localhost:3001/users/new", {
+        const request = await fetch("https://node-server-385z136fl-zdeep10.vercel.app/users/new", {
           method: "POST",
           headers: {
             "Content-type": "application/json",

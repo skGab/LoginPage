@@ -2,6 +2,7 @@ import "./todo.scss";
 import add from "../../icons/add-icon.png";
 import { Task } from "./Tasks/task";
 import { useEffect, useState } from "react";
+import api from "../../services/api";
 
 function Todo() {
   // STATE VARIABLES
@@ -10,7 +11,7 @@ function Todo() {
   const [newTodo, setNewTodo] = useState("");
 
   const fetchTasks = async () => {
-    await fetch("http://localhost:3001/todos")
+    await fetch("https://node-server-385z136fl-zdeep10.vercel.app/todos")
       .then((res) => res.json())
       .then((data) => setTodos(data))
       .catch((err) => console.error("Error: ", err));
