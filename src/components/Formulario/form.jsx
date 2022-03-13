@@ -2,7 +2,7 @@
 import "./form.scss";
 import { Button } from "./Button/btn";
 import { Social } from "./Rede/social";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { formContext } from "../../Context/formContext";
 import { colorContext } from "../../Context/colorContext";
 import { Input } from "./Input/input";
@@ -12,18 +12,40 @@ import { Submitted } from "./Submitted/submit";
 import api from "../../services/api";
 
 const Formulario = () => {
-  // VARIAVEIS DE ESTADO
+  // STATE PARA TRATAR ERRORS
   const [passwordError, setPasswordError] = useState(null);
   const [emailError, setEmailError] = useState(null);
+
+  // STATE PARA DESABILITAR BOTÃO DE CADASTRO
   const [displayButton, setDisplayButton] = useState(true);
 
+  // STATE PARA TROCAR CORES E FUNÇÃO DO FORMULARIO
   const { setBrownButton, setPurpleButton } = useContext(colorContext);
   const { currentForm, setCurrentForm, setDisplayTodo } =
     useContext(formContext);
 
+  // STATE PARA ARMAZENAR USUARIOS JÁ CADASTRADOS
+  const [userInfo, setUserInfo] = useState([]);
+
+  let userAuthentication = false;
+
+  // BUSCANDO DADOS DE USUARIOS
+
+  const getUsers = async () => {
+    await api.get("/users").then((data) => setUserInfo(data.data));
+  };
+
+  useEffect(() => {
+    getUsers();
+
+    console.log("Dados de usuarios encontrados");
+  }, [currentForm]);
+
+  // TRATANDO FORMULARIO
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // TRATANDO DADOS DO FORMULARIO
+
+    // ARMAZENANDO DADOS DOS INPUTS
     const form = new FormData(e.target);
     const formData = Object.fromEntries(form.entries());
 
@@ -34,62 +56,72 @@ const Formulario = () => {
 
       // CADASTRAR USUARIO
       if (currentForm === "Sign up") {
-        const request = await fetch("http://localhost:3001/users/new", {
-          method: "POST",
-          headers: {
+        userAuthentication = false;
+
+        // BUSCANDO USUARIOS JÁ CADASTADOS
+        for (let i = 0; i < userInfo.length; i++) {
+          if (isValid.email === userInfo[i].email) {
+            userAuthentication = true;
+            break;
+          }
+        }
+
+        if (userAuthentication == true) {
+          setEmailError("E-mail is already being used");
+        } else {
+          console.log("Chegou no else");
+          // ENVIANDO DADOS PARA O BACK-END
+          const headers = {
             "Content-type": "application/json",
             accept: "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+          };
 
-        // Troca de formulario
-        setDisplayButton(false);
+          const body = JSON.stringify(isValid);
 
-        setEmailError(null);
-        setPasswordError(null);
+          api.post("/users/new", body, { headers });
 
-        const changeForm = () => {
-          setCurrentForm("Login");
-          setBrownButton(true);
-          setPurpleButton(false);
-          setDisplayButton(true);
-        };
+          // DESABILITANDO BOTÃO E APGANDO MENSAGENS DE ERRO
+          setDisplayButton(false);
+          setEmailError(null);
+          setPasswordError(null);
 
-        setTimeout(changeForm, 3000);
+          // Troca de formulario
+          const changeForm = () => {
+            setCurrentForm("Login");
+            setBrownButton(true);
+            setPurpleButton(false);
+            setDisplayButton(true);
+          };
 
-        console.log("Info stored");
+          setTimeout(changeForm, 3000);
+
+          console.log("Info stored");
+        }
       }
 
       // LOGAR USUARIO
       if (currentForm === "Login") {
-        let userAuthentication = false;
-        await api
-          .get("/users")
-          .then((res) => {
-            const user = res.data;
-            //VALIDAÇÃO DE USUARIO
-            for (let i = 0; i <= user.length; i++) {
-              if (
-                user[i].email === formData.email &&
-                user[i].password === formData.password
-              ) {
-                userAuthentication = true;
-              }
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        userAuthentication = false;
+
+        for (let i = 0; i < userInfo.length; i++) {
+          if (
+            userInfo[i].email === isValid.email &&
+            userInfo[i].password === isValid.password
+          ) {
+            userAuthentication = true;
+            break;
+          }
+        }
+
         // AUTENTICAÇÃO USUARIO
         if (userAuthentication) {
+          // TROCANDO PARA TODO LIST
           setDisplayTodo(true);
 
+          // APAGANDO MENSAGENS DE ERRO
           setEmailError(null);
           setPasswordError(null);
         } else {
-          console.log(userAuthentication);
-
           setEmailError("Invalid email or password");
           setPasswordError("Invalid email or password");
         }
@@ -97,6 +129,7 @@ const Formulario = () => {
 
       // VALIDANDO ERRORS
     } catch (err) {
+      console.log("caiu no catch");
       if (err.message.includes("email") || err.message.includes("password")) {
         if (err.message.includes("email")) {
           setEmailError(err.message);
@@ -129,10 +162,10 @@ const Formulario = () => {
 
         {/* CONTEUDO PRINCIPAL */}
         <Input name="email" type="text" placeholder="Email" />
-        {emailError ? <span className="error">{emailError}</span> : ""}
+        {emailError && <span className="error">{emailError}</span>}
 
         <Input name="password" type="password" placeholder="Password" />
-        {passwordError ? <span className="error">{passwordError}</span> : ""}
+        {passwordError && <span className="error">{passwordError}</span>}
 
         {/* FOOTER */}
         <div className="form__forgot">

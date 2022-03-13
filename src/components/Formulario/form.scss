@@ -1,8 +1,8 @@
 .form {
   &__container {
+    padding: 4rem 0 2rem 0;
     border-radius: 5px;
     width: 42%;
-    height: 85%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,6 +38,7 @@
   }
 
   &__nav {
+    margin-bottom: 2rem;
     padding: 0 5rem;
     display: flex;
     justify-content: flex-end;

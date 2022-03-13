@@ -1,5 +1,5 @@
 // import logo from './logo.svg'
-import react, { useState } from "react";
+import { useState } from "react";
 import "../src/styles/global.scss";
 import { BackGround } from "./components/BackGround/bg";
 import Formulario from "./components/Formulario/form";
@@ -8,9 +8,11 @@ import { colorContext } from "./Context/colorContext";
 import { formContext } from "./Context/formContext";
 
 function App() {
+  // Form Colors
   const [brownButton, setBrownButton] = useState(true);
   const [purpleButton, setPurpleButton] = useState("");
 
+  // Form state(showing Login or Sign in)
   const [currentForm, setCurrentForm] = useState("Login");
   const [displayTodo, setDisplayTodo] = useState(false);
 
@@ -26,7 +28,9 @@ function App() {
     <colorContext.Provider
       value={{ brownButton, setBrownButton, purpleButton, setPurpleButton }}
     >
-      <formContext.Provider value={{ currentForm, setCurrentForm, setDisplayTodo}}>
+      <formContext.Provider
+        value={{ currentForm, setCurrentForm, setDisplayTodo }}
+      >
         <div className="main__container">{changeAplication()}</div>
       </formContext.Provider>
     </colorContext.Provider>
