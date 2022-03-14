@@ -9,6 +9,7 @@
 
 html {
   font-size: 62%;
+  background-color: var(--branco);
 }
 
 body {
@@ -30,6 +31,11 @@ body {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+    }
+
+    @media (max-width: 537px) {
+      background: none;
+      background-color: var(--branco);
     }
   }
 }
