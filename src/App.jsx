@@ -8,13 +8,13 @@ import { colorContext } from "./Context/colorContext";
 import { formContext } from "./Context/formContext";
 
 function App() {
-  // Form Colors
+  // CORES DE FORMULARIOS
   const [brownButton, setBrownButton] = useState(true);
   const [purpleButton, setPurpleButton] = useState("");
 
-  // Form state(showing Login or Sign in)
+  // RENDERIZANDO COMPONENTES (LOGIN, SIGN IN OU TODO)
   const [currentForm, setCurrentForm] = useState("Login");
-  const [displayTodo, setDisplayTodo] = useState(false);
+  const [displayTodo, setDisplayTodo] = useState(false); // Deixar setado como FALSE
 
   const changeAplication = () => {
     if (displayTodo) {

@@ -37,8 +37,6 @@ const Formulario = () => {
 
   useEffect(() => {
     getUsers();
-
-    console.log("Dados de usuarios encontrados");
   }, [currentForm]);
 
   // TRATANDO FORMULARIO

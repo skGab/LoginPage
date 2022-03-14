@@ -7,15 +7,89 @@
     height: 100vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: 0.4s;
+
+    @media (max-width: 544px) {
+      padding: 2rem;
+    }
+  }
+
+  &__line {
+    border-radius: 50px;
+    height: 3px;
+    width: 115%;
+    background-color: #ffffffc9;
+    margin-bottom: 2rem;
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.219);
+  }
+
+  &__createBlock {
+    backdrop-filter: blur(15px) saturate(90%);
+    transition: 0.4s;
+    width: fit-content;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    background-color: #ad9372e3;
+    margin-bottom: 5rem;
+    padding: 2rem 3rem 3rem 3rem;
+    box-shadow: 1px 2px 4px rgb(0, 0, 0);
+    align-items: center;
+
+    @media (max-width: 418px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+
+    input {
+      letter-spacing: 1px;
+      font-size: 1.8rem;
+      color: rgb(255, 255, 255);
+      font-family: "Poppins", sans-serif;
+      padding: 1.2rem 2rem;
+      border-radius: 20px;
+      background: none;
+      outline: none;
+      border: none;
+      box-shadow: 0px 3px 0px rgb(255, 255, 255);
+      margin-right: 4rem;
+
+      @media (max-width: 418px) {
+        margin-right: 0px;
+        margin-bottom: 2rem;
+      }
+    }
+
+    input::placeholder {
+      letter-spacing: 1px;
+      font-size: 1.8rem;
+      color: rgba(253, 252, 252, 0.397);
+      font-family: "Poppins", sans-serif;
+    }
+
+    button {
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      outline: none;
+      box-shadow: 1px 2px 4px black;
+      background-color: #26373e;
+    }
   }
 
   &__wrapper {
     backdrop-filter: blur(15px) saturate(90%);
     -webkit-backdrop-filter: blur(15px) saturate(90%);
-    background-color: #a9b3b450;
+    background-color: #a9b3b467;
     border-radius: 12px;
     padding: 3rem;
     box-shadow: 1px 2px 4px black;
@@ -33,6 +107,7 @@
 
     h2 {
       font-size: 1.5rem;
+      letter-spacing: 0.5px;
     }
   }
 
@@ -50,13 +125,13 @@
       border-radius: 10px;
       transition: 0.5s;
       margin-bottom: 1.5rem;
-      cursor: pointer;
       box-shadow: 1px 2px 4px black;
     }
 
     &__fild {
       display: flex;
       align-items: center;
+      cursor: pointer;
 
       :hover {
         opacity: 0.8;
@@ -79,10 +154,12 @@
     }
 
     &__text {
+      letter-spacing: 0.5px;
       font-size: 1.8rem;
       color: rgb(233, 233, 233);
       font-family: "Poppins", sans-serif;
-      &--active{
+      transition: 0.4s;
+      &--active {
         text-decoration: line-through;
         color: #26373e;
       }

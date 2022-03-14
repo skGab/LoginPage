@@ -14,14 +14,12 @@ html {
 body {
   // font-family: 'Montserrat', sans-serif;
   font-family: "Poppins", sans-serif;
-  background-color: var(--branco);
   height: 100%;
 }
 
 .main {
   &__container {
     width: 100%;
-    background-color: var(--black);
     display: flex;
     justify-content: center;
     align-items: center;
