@@ -67,7 +67,6 @@ const Formulario = () => {
         if (userAuthentication == true) {
           setEmailError("E-mail is already being used");
         } else {
-          console.log("Chegou no else");
           // ENVIANDO DADOS PARA O BACK-END
           const headers = {
             "Content-type": "application/json",
@@ -92,8 +91,6 @@ const Formulario = () => {
           };
 
           setTimeout(changeForm, 3000);
-
-          console.log("Info stored");
         }
       }
 
@@ -127,7 +124,6 @@ const Formulario = () => {
 
       // VALIDANDO ERRORS
     } catch (err) {
-      console.log("caiu no catch");
       if (err.message.includes("email") || err.message.includes("password")) {
         if (err.message.includes("email")) {
           setEmailError(err.message);

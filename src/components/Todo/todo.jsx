@@ -13,7 +13,7 @@ function Todo() {
 
   const fetchTasks = async () => {
     await api
-      .get("http://localhost:3001/todos")
+      .get("/todos")
       .then((data) => setTodos(data.data))
       .catch((err) => console.error("Error: ", err));
   };
