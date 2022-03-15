@@ -76,7 +76,7 @@ function Todo() {
       <div className="todo__createBlock">
         <div className="todo__line"></div>
 
-        <div>
+        <div className="teste">
           <input
             onChange={creatingTask}
             type="newTask"
@@ -88,8 +88,6 @@ function Todo() {
       </div>
     );
   };
-
-  const createTodo = async () => {};
 
   return (
     <div className="todo__container">

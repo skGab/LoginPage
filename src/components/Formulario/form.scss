@@ -1,6 +1,6 @@
 .form {
   &__container {
-    padding: 4rem 0 2rem 0;
+    padding: 3rem;
     border-radius: 5px;
     width: 100%;
     max-width: 600px;
@@ -33,15 +33,14 @@
       max-width: 400px;
       // width: 80%;
 
-      @media (max-width: 1145px) {
-        padding: 2rem;
-      }
+      // @media (max-width: 1145px) {
+      //   padding: 2rem;
+      // }
     }
   }
 
   &__nav {
-    margin-bottom: 2rem;
-    padding: 0 5rem;
+    margin-bottom: 4rem;
     display: flex;
     justify-content: flex-end;
     width: 100%;
