@@ -10,10 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: 0.4s;
-    padding: 4rem;
-    
-   
+    padding: 1.5rem;
   }
 
   &__line {
@@ -26,6 +23,8 @@
   }
 
   &__createBlock {
+    transition: 0.4s;
+
     backdrop-filter: blur(15px) saturate(90%);
     transition: 0.4s;
     display: flex;
@@ -42,7 +41,6 @@
       align-items: center;
       flex-wrap: wrap;
       justify-content: space-between;
-
     }
 
     input {
@@ -85,6 +83,10 @@
     padding: 3rem;
     box-shadow: 1px 2px 4px black;
     transition: 0.4s;
+
+    @media (max-width: 550px) {
+      width: 100%;
+    }
   }
 
   &__header {
@@ -94,6 +96,16 @@
     h1 {
       font-size: 3.5rem;
       margin-bottom: 4rem;
+
+      @media (max-width: 550px) {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 390px) {
+        font-size: 2.5rem;
+      }
+
+  
     }
 
     h2 {
