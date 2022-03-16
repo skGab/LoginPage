@@ -38,14 +38,16 @@
 
     [ x ] Mostrar msg de sucesso ao finalizar o cadastro
 
-[ ] Ao clicar no botão de Login
+[ x ] Ao clicar no botão de Login
 
-    [ ] Validar se usuario esta cadastrado
+    [ x ] Validar se usuario esta cadastrado
     
-    [ ] Mostrar TODO List
+    [ x ] Mostrar TODO List
 
 # Back-End
 
 [ x ] Fazer conexão com o front-end
 
 [ x ] Construir funções para os requests
+
+ [ ]  Mostrar Tarefas de cada usuario
