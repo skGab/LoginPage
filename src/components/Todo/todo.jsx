@@ -1,27 +1,17 @@
 import "./todo.scss";
 import add from "../../icons/add-icon.png";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import api from "../../services/api";
 import trash from "../../icons/delete-icon.png";
+import { formContext } from "../../Context/formContext";
 
-function Todo() {
+function Todo({ setDisplayTodo }) {
   // STATE VARIABLES
-  const [todos, setTodos] = useState([]);
-
   const [popupActive, setPopupActive] = useState(false);
   const [newTodo, setNewTodo] = useState("");
 
-  const fetchTasks = async () => {
-    await api
-      .get("/todos")
-      .then((data) => setTodos(data.data))
-      .catch((err) => console.error("Error: ", err));
-  };
-
-  //GET TODOS
-  useEffect(() => {
-    fetchTasks();
-  }, []);
+  // Current User
+  const { currentUser, setTodos, todos } = useContext(formContext);
 
   // MARCAR OU DESATIVAR TAREFA
   const completeTodo = async (id) => {
@@ -49,6 +39,7 @@ function Todo() {
   // CRIAR TAREFA
   const creatingTask = (e) => {
     setNewTodo(e.target.value);
+    setTodos(null);
   };
 
   const sendTask = async () => {
@@ -60,6 +51,7 @@ function Todo() {
 
       const body = {
         text: newTodo,
+        userID: currentUser._id,
       };
 
       const data = await api.post("/todos/new", body, { headers });
@@ -89,11 +81,22 @@ function Todo() {
     );
   };
 
+  // Logout
+  const signOut = () => {
+    window.localStorage.clear();
+    setDisplayTodo(false);
+  };
+
   return (
     <div className="todo__container">
-      {/* CREATE */}
+      {/* Logout */}
+      <div className="todo__signOut">
+        <button onClick={signOut}>Sign out</button>
+      </div>
 
+      {/* CREATE */}
       {popupActive && createBlock()}
+
       <div className="todo__wrapper">
         {/* HEADER */}
         <header className="todo__header">

@@ -21,8 +21,12 @@ const Formulario = () => {
 
   // STATE PARA TROCAR CORES E FUNÇÃO DO FORMULARIO
   const { setBrownButton, setPurpleButton } = useContext(colorContext);
-  const { currentForm, setCurrentForm, setDisplayTodo } =
+  const { currentForm, setCurrentForm, setDisplayTodo, setCurrentUser } =
     useContext(formContext);
+
+  // STATE PARA ARMAZENAR O USUARIO ATUAL
+
+  let loggedUser;
 
   // STATE PARA ARMAZENAR USUARIOS JÁ CADASTRADOS
   const [userInfo, setUserInfo] = useState([]);
@@ -30,9 +34,8 @@ const Formulario = () => {
   let userAuthentication = false;
 
   // BUSCANDO DADOS DE USUARIOS
-
-  const getUsers = async () => {
-    await api.get("/users").then((data) => setUserInfo(data.data));
+  const getUsers = () => {
+    api.get("/users").then((data) => setUserInfo(data.data));
   };
 
   useEffect(() => {
@@ -103,6 +106,9 @@ const Formulario = () => {
             userInfo[i].email === isValid.email &&
             userInfo[i].password === isValid.password
           ) {
+            loggedUser = {
+              ...userInfo[i],
+            };
             userAuthentication = true;
             break;
           }
@@ -110,8 +116,10 @@ const Formulario = () => {
 
         // AUTENTICAÇÃO USUARIO
         if (userAuthentication) {
-          // TROCANDO PARA TODO LIST
+          window.localStorage.setItem("user", loggedUser._id);
+
           setDisplayTodo(true);
+          setCurrentUser(loggedUser);
 
           // APAGANDO MENSAGENS DE ERRO
           setEmailError(null);
@@ -175,8 +183,7 @@ const Formulario = () => {
         {/* COMPONENTES DO FOOTER */}
         {displayButton ? <Button currentForm={currentForm} /> : <Submitted />}
 
-        {/* <Button title={"Cadastro"} /> */}
-        <Social currentForm={currentForm} />
+        {/* <Social currentForm={currentForm} /> */}
       </form>
     </div>
   );
