@@ -39,7 +39,6 @@ function Todo({ setDisplayTodo }) {
   // CRIAR TAREFA
   const creatingTask = (e) => {
     setNewTodo(e.target.value);
-    setTodos(null);
   };
 
   const sendTask = async () => {

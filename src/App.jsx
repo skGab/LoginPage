@@ -9,6 +9,9 @@ import { formContext } from "./Context/formContext";
 import api from "./services/api";
 
 function App() {
+  const u = window.localStorage.getItem("user");
+  const user = JSON.parse(u);
+  
   // CORES DE FORMULARIOS
   const [brownButton, setBrownButton] = useState(true);
   const [purpleButton, setPurpleButton] = useState("");
@@ -18,19 +21,17 @@ function App() {
   const [displayTodo, setDisplayTodo] = useState(false); // Deixar setado como FALSE
 
   // Current User
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState(user);
 
   // Armazenando tarefas
   const [todos, setTodos] = useState([]);
-
-  const user = window.localStorage.getItem("user");
 
   useEffect(() => {
     if (user) {
       setDisplayTodo(true);
 
       api
-        .get("/todos/" + user)
+        .get("/todos/" + user._id)
         .then((data) => setTodos(data.data))
         .catch((err) => console.error("Error: ", err));
     }

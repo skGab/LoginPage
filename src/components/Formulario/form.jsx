@@ -116,7 +116,7 @@ const Formulario = () => {
 
         // AUTENTICAÇÃO USUARIO
         if (userAuthentication) {
-          window.localStorage.setItem("user", loggedUser._id);
+          window.localStorage.setItem("user", JSON.stringify(loggedUser));
 
           setDisplayTodo(true);
           setCurrentUser(loggedUser);
