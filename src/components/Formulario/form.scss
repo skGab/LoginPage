@@ -1,6 +1,6 @@
 .form {
   &__container {
-    padding: 3rem;
+    padding: 5rem 4rem 8rem 4rem;
     border-radius: 5px;
     width: 100%;
     max-width: 600px;
@@ -24,6 +24,7 @@
     }
 
     @media (max-width: 537px) {
+      padding: 2rem;
       width: 100%;
       box-shadow: 0 0 0;
     }
@@ -97,6 +98,10 @@
     font-size: 1.5rem;
     text-align: center;
 
+    @media (max-width: 537px) {
+      font-size: 1.3rem;
+    }
+
     h1 {
       font-weight: 400;
     }
@@ -135,7 +140,7 @@
   &__forgot {
     font-family: "Montserrat", sans-serif;
     font-size: 1.3rem;
-    margin-top: 2rem;
+    margin-top: .8rem;
     margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;

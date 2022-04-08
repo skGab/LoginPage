@@ -1,5 +1,6 @@
 import "./todo.scss";
 import add from "../../icons/add-icon.png";
+import back from "../../icons/back-icon.png";
 import { useEffect, useState, useContext } from "react";
 import api from "../../services/api";
 import trash from "../../icons/delete-icon.png";
@@ -100,10 +101,11 @@ function Todo({ setDisplayTodo }) {
         {/* HEADER */}
         <header className="todo__header">
           <h1 className="todo__header__title">Welcome to your Todo List</h1>
-          <h2>Your tasks</h2>
         </header>
         {/* MAIN CONTENT */}
         <main className="todo__main">
+          <h2>Your tasks</h2>
+
           {todos.map((todo) => (
             <div className="todo__main__filds" key={todo._id}>
               <div
@@ -145,6 +147,10 @@ function Todo({ setDisplayTodo }) {
             onClick={() => setPopupActive(true)}
           >
             <img src={add} alt="Add Button" />
+          </button>
+
+          <button onClick={signOut} className="todo__footer__new todo__footer__back">
+            <img src={back} alt="Add Button" />
           </button>
         </footer>
       </div>
