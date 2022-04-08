@@ -49,3 +49,26 @@ span {
   font-size: 1.1rem;
   margin: 0 1rem;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #ad937254;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  width: 50px;
+  background-color: #ad937250;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #474544cc;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
