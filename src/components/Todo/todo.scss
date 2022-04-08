@@ -177,6 +177,7 @@
       @media (max-width: 550px) {
         width: 97%;
         margin: 0.5rem auto;
+        cursor: row-resize;
       }
     }
 
@@ -270,9 +271,9 @@
       @media (max-width: 550px) {
         order: -1;
         display: block;
-        padding: .4rem;
+        padding: 0.4rem;
 
-        img{
+        img {
           width: 25px;
           height: auto;
         }
