@@ -1,7 +1,5 @@
 # Pagina de Login
 
-- Projeto em andamento: <a href=https://login-page-zdeep10.vercel.app/>Visualizar</a>
-
     O objetivo do projeto consiste em armazenar as informações de um usuário em um banco de dados, após o login, o mesmo poderá organizar uma TODO list. O projeto foi               desenvolvido utilizando a biblioteca REACT e estarei praticando conceitos de CRUD, API rest, conexão com o Front & Back-end e administração de um banco de dados.
 
 # Geral
